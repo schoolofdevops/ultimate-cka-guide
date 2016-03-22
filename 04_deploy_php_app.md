@@ -1,3 +1,4 @@
+# Deploy PHP App with Capistrano
 
 ```
 rpm --import http://rpms.famillecollet.com/RPM-GPG-KEY-remi
@@ -7,9 +8,9 @@ rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 ```
 
 #### Edit /etc/yum.repos.d/remi.repo
-and add the following to [remi] block
+A dd the following to [remi] block
 
-```enabled=1```
+```  enabled=1  ```
 
 #### Install PHP with FPM
 ```
@@ -23,12 +24,17 @@ yum install php55 php55-php-fpm
 
 Backup Nginx' existing default config
 
-``` mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.bak ```
+```
+
+mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.bak
+
+```
 
 
 Create a new  default.conf with following content
 
 ```
+
 server {
 
        listen 80 default_server;
@@ -51,6 +57,7 @@ server {
        }
 
 }
+
 ```
 
 Restart Nginx
@@ -69,6 +76,7 @@ Change into the working copy of the repository
 Create a file index.php
 
 ```
+
 <html>
  <body bgcolor="#FFF66C">
   <h1> Version 1.0 <h1>
@@ -79,6 +87,7 @@ Create a file index.php
 	?>
 	</body>
 </html>
+
 
 ```
 
@@ -99,6 +108,7 @@ Create a Capistrano Task to restart Nginx
 Path: lib/capistrano/tasks/nginx_restart.rake
 
 ```
+
 desc "nginx"
 task :nginx_restart do
     on roles(:app) do |h|
@@ -111,10 +121,13 @@ task :nginx_restart do
   end
 end
 
+
 ```
 
 
 ### Deployment on Production :
+
+Deploy the PHP code
 
 ``` cap production deploy nginx_restart ```
 
@@ -123,9 +136,9 @@ end
 Change into the repository and edit index.php
 
 ```
-<del>   <h1> Version 1.0 <h1>  </del>
+~~Version 1.0~~
 
-  <h1> Version 1.0 <h1>
+ Version 1.0
 ```
 
 ```
@@ -135,6 +148,7 @@ git push origin master
 ```
 
 #### Deploy new version
+
 
 ``` cap production deploy nginx_restart ```
 
