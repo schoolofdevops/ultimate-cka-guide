@@ -80,3 +80,11 @@ set :default_stage, :production
 Deployment to Production :
 
 ``` cap production deploy  ```
+
+
+#### Validate
+
+To validate, open the following in your URL after replacing HOSTNAME with IP Address/Hostname of the Nginx Server
+
+
+http://HOSTNAME/current
