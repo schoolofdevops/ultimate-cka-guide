@@ -136,7 +136,7 @@ Deploy the PHP code
 
 Change into the repository and edit index.php
 
-<del>  ``` Version 1.0  ``` </del>
+``` <del>  Version 1.0  </del> ``` 
 
 ``` Version 2.0 ```
 
