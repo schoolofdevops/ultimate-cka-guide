@@ -55,21 +55,14 @@ edit **config/deploy.rb** and add the following content
 ```
 # -*- coding: utf-8 -*-
 
-set :log_level, :debug
-
+set :log_level, :info
 set :application, 'myapp'
-
 set :scm, :git
-
 set :repo_url, '<REPLACE_THIS_WITH_YOUR_REPO_URL>'
-
 set :branch, "master"
-
 set :deploy_to, "/usr/share/nginx/html"
-
 set :stages, [:staging, :production]
 set :default_stage, :production
-
 
 ```
 
