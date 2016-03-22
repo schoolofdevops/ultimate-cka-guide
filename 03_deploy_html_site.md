@@ -87,5 +87,3 @@ set :default_stage, :production
 Deployment to Production :
 
 ``` cap production deploy  ```
-
-**cap production deploy:rollback **
