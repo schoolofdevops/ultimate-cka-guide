@@ -1,5 +1,7 @@
 # Deploy PHP App with Capistrano
 
+Install Remi repository to enable php5-fpm installation
+
 ```
 rpm --import http://rpms.famillecollet.com/RPM-GPG-KEY-remi
 rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
@@ -7,8 +9,7 @@ rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 
 ```
 
-#### Edit /etc/yum.repos.d/remi.repo
-A dd the following to [remi] block
+Enable th eabove repository by editing  /etc/yum.repos.d/remi.repo and updating the  following to [remi] block
 
 ```  enabled=1  ```
 
