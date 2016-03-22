@@ -88,3 +88,13 @@ To validate, open the following in your URL after replacing HOSTNAME with IP Add
 
 
 http://HOSTNAME/current
+
+
+
+### Common Errors
+
+**Issue** : Permission denied while creating directory
+
+**Reasons**
+   *  deployer user is not part of the nginx group
+   *  permissions on the directory have not been set correctly.  Refer to 02_prepare_deploy_server
