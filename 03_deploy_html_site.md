@@ -78,19 +78,7 @@ set :default_stage, :production
 ```
 	set :stage, :production
 
-	role :app, %w{deployer@}
-
-	server '', user: 'deployer', roles: %w{app}
-
-	set :ssh_options, {
-
-	forward_agent: false,
-
-	user: 'deployer',
-
-	keys: %w(/root/.ssh/id_rsa),
-
-	auth_methods: %w(publickey password),
+	server '<REPLACE_THIS_WITH_DEPLOY_SERVER_IP>', user: 'deployer', roles: %w{app}
 
 
 ```

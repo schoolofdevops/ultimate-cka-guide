@@ -102,16 +102,15 @@ root ALL=(ALL) ALL in **/etc/sudoers file**.
 - create a file index.php
 -
 ```
+<html>
+ <body bgcolor="#E6E6FA">
+  <h2> Sample PHP App <h2>
+  <h3> Version 1.0 <h3>
 	<?php
-
-	echo "hello <br>....his is sample php application deployment by capistrano";
-
-	echo "<br><hr>";
-
-	echo "the time is . date("h:i:sa");
-
-	echo "app version 1.o";
+  	echo "<h4>Current date and time => " . date("r") . "</h4>";
 	?>
+	</body>
+</html>
 
 ```
 
