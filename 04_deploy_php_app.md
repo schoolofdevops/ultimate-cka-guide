@@ -1,5 +1,9 @@
 # Deploy PHP App with Capistrano
 
+Objective: Goal of this exercise is to configure  php application on the web server along with nginx, deploy two versions of a sample  php application and learn about rollback with capistrano.
+
+## Prepare Deploy Host/Web Server to run  PHP
+
 Lets setup PHP in addition to Nginx on the **Deploy Server**
 
 
@@ -12,7 +16,7 @@ rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 
 ```
 
-Enable th eabove repository by editing  /etc/yum.repos.d/remi.repo and updating the  following to [remi] block
+Enable the above repository by editing  **/etc/yum.repos.d/remi.repo** and updating the  following to [remi] block
 
 ```  enabled=1  ```
 
@@ -68,9 +72,28 @@ Restart Nginx
 
 ``` service nginx restart ```
 
+### Validate
+
+Create a sample php file inside the webroot at
+
+**/usr/share/nginx/html/current/info.php**
+
+```
+<?php
+  phpinfo();
+?>
+```
+
+To validate, open the web server's Ip/hostname followed by info.php
+
+e.g. http://192.168.5.10/info.php
+
+This should show you a sample PHP page.
 
 
-### Now move back to Development Server.
+## Deploy PHP App
+
+Now lets move back to Development Server.
 
 Change into the working copy of the repository
 
