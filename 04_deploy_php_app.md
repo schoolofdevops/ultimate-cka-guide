@@ -72,6 +72,13 @@ Restart Nginx
 
 ``` service nginx restart ```
 
+Enable nginx and PHP5-fpm to start automatically at boot
+
+```
+chkconfig nginx on
+chkconfig php55-php-fpm on
+```
+
 ### Validate
 
 Create a sample php file inside the webroot at
@@ -88,8 +95,11 @@ To validate, open the web server's Ip/hostname followed by info.php
 
 e.g. http://192.168.5.10/info.php
 
-This should show you a sample PHP page.
+This should show you a sample PHP page. If not you will have to look at nginx logs or php5-php-fpm logs and debug the issue.
 
+**Possible Issues: **
+ * php5-php-fpm is not installed/started. Logs for php5-php-fpm installed using remi are located in /opt/remi/php55/root/var/log/php-fpm/ directory
+ * nginx is not configured properly to handle php requests or to hand off to php5-php-fpm. Check the configs inside /etc/nginx/sites-enabled/*.conf 
 
 ## Deploy PHP App
 
