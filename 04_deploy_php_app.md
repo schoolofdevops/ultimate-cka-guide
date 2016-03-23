@@ -1,5 +1,8 @@
 # Deploy PHP App with Capistrano
 
+Lets setup PHP in addition to Nginx on the **Deploy Server**
+
+
 Install Remi repository to enable php5-fpm installation
 
 ```
