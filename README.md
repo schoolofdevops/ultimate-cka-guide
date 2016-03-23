@@ -1,11 +1,12 @@
 # Capistrano Primer
 
 
-* [Install Capistrano on Centos 6.7](https://github.com/schoolofdevops/learn-capistrano/blob/master/manuscript/01_install_capistrano.md)  
-* [Prepare Deploy Server](https://github.com/schoolofdevops/learn-capistrano/blob/master/manuscript/02_prepare_deploy_server.md)
-* [Deploy HTML Site](https://github.com/schoolofdevops/learn-capistrano/blob/master/manuscript/03_deploy_html_site.md)  
-* [Add Pre Flight Checks](https://github.com/schoolofdevops/learn-capistrano/blob/master/manuscript/05_pre_flight_checks.md)
-* [Deploy a PHP App](https://github.com/schoolofdevops/learn-capistrano/blob/master/manuscript/04_deploy_php_app.md)
+* [Install Capistrano on Centos 6.7](https://github.com/schoolofdevops/learn-capistrano/blob/master/manuscript/install_capistrano.md)  
+* [Prepare Deploy Server](https://github.com/schoolofdevops/learn-capistrano/blob/master/manuscript/prepare_deploy_server.md)
+* [Deploy HTML Site](https://github.com/schoolofdevops/learn-capistrano/blob/master/manuscript/deploy_html_site.md)  
+* [Add Pre Flight Checks](https://github.com/schoolofdevops/learn-capistrano/blob/master/manuscript/pre_flight_checks.md)
+* [Deploy a PHP App](https://github.com/schoolofdevops/learn-capistrano/blob/master/manuscript/deploy_php_app.md)
+* [Auto Deploy from Jenkins](https://github.com/schoolofdevops/learn-capistrano/blob/master/manuscript/run_cap_deploy_from_jenkins.md)
 
 
 License
