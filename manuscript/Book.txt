@@ -1,6 +1,10 @@
 {mainmatter}
-01_install_capistrano.md
-02_prepare_deploy_server.md
-03_deploy_html_site.md
-04_deploy_php_app.md
+
+install_capistrano.md
+prepare_deploy_server.md
+deploy_html_site.md
+pre_flight_checks.md
+deploy_php_app.md
+run_cap_deploy_from_jenkins.md
+
 {backmatter}
