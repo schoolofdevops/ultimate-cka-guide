@@ -2,12 +2,12 @@
 
 Capistrano is a remote server automation tool.It supports the scripting and execution of arbitrary tasks, and includes a set of sane-default deployment workflows.
 
-## Installation
+## Installing Capistrano on Centos 6.7
+
 Capistrano requires ruby version >=2.x.x to
 be installed
 
 ### Installing Pre Requisites
-
 
 ```
 
@@ -19,6 +19,7 @@ yum -y install patch libyaml-devel libffi-devel glibc-headers autoconf gcc-c++ g
 ```
 
 ### Installing Ruby with RVM
+
 
 #### Add rvm signature
 ```
@@ -35,20 +36,22 @@ curl -L get.rvm.io | bash -s stable
 
 
 #### Install Ruby using rvm
+
 ```rvm install 2.1.4```
 
-#### verify ruby version
+#### Verify ruby version
 
 ```ruby -v```
 
-###INSTALL CAPISTRANO:-###
+### Install  Capistrano using gem
 
-``gem install capistrano```
+``` gem install capistrano ```
 
 deploy nonrail app with Capistrano
-```gem install railsless-deploy```
 
-capistrano extenstions:-
+``` gem install railsless-deploy ```
+
+Install capistrano extensions
 
 ```gem install capistrano-ext```
 

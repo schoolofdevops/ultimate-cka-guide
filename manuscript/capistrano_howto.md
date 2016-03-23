@@ -197,7 +197,7 @@ edit **config/deploy.rb** and add the following content
 	keys: %w(/root/.ssh/id_rsa),
 
 	auth_methods: %w(publickey password),
-
+  }
 
 ```
 
