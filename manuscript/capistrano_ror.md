@@ -1,100 +1,68 @@
-###example 2
+#Deploy with ruby rail app:-
 
 ruby rails application deployment using capistrano:-
 
-**deployment server:-**
+##Deployment server
+- update system:-
 
-Preparing The Deployment Serve:-r
+		yum -y update
 
-
-
-- Updating And Preparing The Operating System
-
-- Setting Up Ruby Environment and Rails
-
-- Downloading And Installing App. & HTTP Servers
-
-- Creating The Nginx Management Script
-
-- Configuring Nginx For Application Deployment
-
-- Downloading And Installing Capistrano
-
-- Creating A System User For Deployment
-
-**development server:-**
-
-- nstalling Capistrano Inside The Project Directory
-
-- Working With config/deploy.rb Inside The Project Directory
-
-- Working With config/deploy/production.rb Inside The Project Directory
-
-- Deploying To The Production Server
-
-- git repository
-
-###deployment server
-
-update system:-
-
-**yum -y update**
-
-Install the bundle containing development tools :
+- Install the bundle containing development tools :
 
 
-**yum groupinstall -y 'development tools'**
+		yum groupinstall -y 'development tools'
 
- EPEL repository:
+ - EPEL repository:
 
-**sudo su -c 'rpm -Uvh88 http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm'**
+		sudo su -c 'rpm -Uvh88 http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm'
 
-**yum -y update**
+		yum -y update
 
-install some additional libraries and tools:-
+- install some additional libraries and tools:-
 
-**yum install -y curl-devel nano sqlite-devel libyaml-devel**
+		yum install -y curl-devel nano sqlite-devel libyaml-devel
 
-Setting Up Ruby Environment and Rails:-
+- Setting Up Ruby Environment and Rails:-
 
-**curl -L get.rvm.io | bash -s stable**
+		curl -L get.rvm.io | bash -s stable
 
-**source /etc/profile.d/rvm.sh**
+		source /etc/profile.d/rvm.sh
 
-**rvm reload**
+		rvm reload
 
-**rvm install 2.1.0**
-
-Rails needs a JavaScript interpreter, run the following to download and install nodejs:-
-
-**yum install -y nodejs**
-
-using RubyGems' gem to download and install rails:-
-
-**gem install bundler rails**
-
-swaping ig server size less than 1GB:-
-
-Create a 1024 MB SWAP space:
-
-**sudo dd if=/dev/zero of=/swap bs=1M count=1024**
-
-**sudo mkswap /swap**
-
-**sudo swapon /swap**
-
-download and install passenger:-
+		rvm install 2.1.0
 
 
-**gem install passenger**
+- Rails needs a JavaScript interpreter, run the following to download and install nodejs:-
 
-Run the following to start compiling Nginx with native Passenger module:-
+		yum install -y nodejs
 
-**passenger-install-nginx-module**
+- using RubyGems' gem to download and install rails:-
+
+		gem install bundler rails
+
+- swaping ig server size less than 1GB:-
+
+  Create a 1024 MB SWAP space:
+
+		sudo dd if=/dev/zero of=/swap bs=1M count=1024
+
+		sudo mkswap /swap
+
+		sudo swapon /swap
+
+- download and install passenger:-
+
+
+		gem install passenger
+
+- Run the following to start compiling Nginx with native Passenger module:-
+
+		passenger-install-nginx-module
 
 select language, then option 1 to download & continue
 
-create nginx script:
+- create nginx script:
 
 **nano /etc/rc.d/init.d/nginx**
 
@@ -255,17 +223,16 @@ create nginx script:
 
 ```
 
-set permission:-
+- set permission:-
 
-**chmod +x /etc/rc.d/init.d/nginx**
+		chmod +x /etc/rc.d/init.d/nginx
 
-configure nginx for deployment:-
+- configure nginx for deployment:-
 
-**nano /opt/nginx/conf/nginx.conf**
+	**nano /opt/nginx/conf/nginx.conf**
 
-these line add in the file:-
-```
-	passenger_app_env development;
+	these line add in the file:-
+passenger_app_env development;
 
 	location / {
 
@@ -280,38 +247,37 @@ these line add in the file:-
 
 	passenger_enabled on;
 
-```
 
-restart nginx:-
+- restart nginx:-
 
-**/etc/init.d/nginx restart**
+		etc/init.d/nginx restart
 
-###development server:-
+##Development server:-
 
-Create a sample Rails application:-
+- Create a sample Rails application:-
 **rails new my_app**
 
-Enter the application directory:-
+  Enter the application directory:-
 
-**cd my_app**
+		cd my_app
 
-Create a sample resource:-
+- Create a sample resource:-
 
-**rails generate scaffold Task title:string note:text**
+		rails generate scaffold Task title:string note:text
 
-Create a sample database:-
+- Create a sample database:-
 
-**RAILS_ENV=development rake db:migrate**
+		RAILS_ENV=development rake db:migrate
 
-test application set correctly:
+- test application set correctly:
 
-Enter the application directory
+- Enter the application directory
 
-**cd my_app**
+		cd my_app
 
-Run a simple server
+- Run a simple server
 
-**rails s**
+		rails s
 
 You should now be able to access it by
 
@@ -321,38 +287,38 @@ In order to terminate the server process
 
 **Press CTRL+C**
 
-create git repo:-
+- create git repo:-
 
-**git init**
+		git init
 
-**git add .**
+		git add .
 
-**git commit -m "..."**
+		git commit -m "..."
 
-**git remote url add**
+		git remote url add
 
-**git push origin master**
+		git push origin master
 
 
-capistrano installation inside app dir:-
+- capistrano installation inside app dir:-
 
-**cap install**
+		cap install
 
 it will created following file structure for you
 
- **mkdir -p config/deploy**
+ 		mkdir -p config/deploy
 
- **create config/deploy.rb**
+ 		create config/deploy.rb
 
- **create config/deploy/staging.rb**
+ 		create config/deploy/staging.rb
 
-**create config/deploy/production.rb**
+		create config/deploy/production.rb
 
-**mkdir -p lib/capistrano/tasks**
+		mkdir -p lib/capistrano/tasks
 
-**Capifile**
+		Capifile
 
-configure deploy.rb:-
+- configure deploy.rb:-
 
 **nano config/deploy.rb**
 
@@ -404,13 +370,12 @@ configure deploy.rb:-
 	#   end
 
 	# end
-
 ```
-configuration productio.rb:-
+- configure production.rb:-
 
 **nano config/deploy/production.rb**
 
-```
+
 
 	# Define roles, user and IP address of deployment server
 	# role :name, %{[user]@[IP adde.]}
@@ -431,8 +396,8 @@ configuration productio.rb:-
     user: 'deployer',
 	}
 
-```
 
-deploy now:-
 
-**cap production deploy**
+- deploy now:-
+
+		cap production deploy

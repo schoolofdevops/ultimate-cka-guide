@@ -98,7 +98,11 @@ e.g. http://192.168.5.10/info.php
 This should show you a sample PHP page. If not you will have to look at nginx logs or php5-php-fpm logs and debug the issue.
 
 **Possible Issues: **
- * php5-php-fpm is not installed/started. Logs for php5-php-fpm installed using remi are located in /opt/remi/php55/root/var/log/php-fpm/ directory
+
+ * php5-php-fpm is not installed/started.
+
+-  Logs for php5-php-fpm installed using remi are located in /opt/remi/php55/root/var/log/php-fpm/ directory
+
  * nginx is not configured properly to handle php requests or to hand off to php5-php-fpm. Check the configs inside /etc/nginx/sites-enabled/*.conf 
 
 ## Deploy PHP App
@@ -190,3 +194,6 @@ git push origin master
 #### Rollback to previous version
 
 ``` cap production deploy:rollback nginx_restart ```
+
+###Capistrano workflow model:-
+![](https://github.com/ashwini9860/images/raw/master/cap-model.png)SS
