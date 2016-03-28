@@ -5,7 +5,6 @@
 Change into  directory where your application source code is located.
 
 ```
-
 cd /path/to/myapp/
 
 ```
@@ -20,14 +19,15 @@ Create  index.html
 ```
 
 Add and commit to git repo on Github
+
 ```
-git add index.html
+- git add index.html
 
-git commit -a -m "adding index page"
+- git commit -a -m "adding index page"
 
-git push origin master
+- git push origin master
  or
-git push github master (if your remote is called github)
+- git push github master (if your remote is called github)
 
 ```
 
@@ -56,17 +56,27 @@ edit **config/deploy.rb** and add the following content
 # -*- coding: utf-8 -*-
 
 set :log_level, :info
+
 set :application, 'myapp'
+
 set :scm, :git
-set :repo_url, '<REPLACE_THIS_WITH_YOUR_REPO_URL>'
+
+set :repo_url, <"REPLACE_THIS_WITH_YOUR_REPO_URL">
+
 set :branch, "master"
+
 set :deploy_to, "/usr/share/nginx/html"
+
 set :stages, [:staging, :production]
+
 set :default_stage, :production
 
-```
+edit:-
 
-- Edit config/deploy/production.rb and add the following content :
+```
+- config/deploy/production.rb 
+```
+and add the following content :
 
 ```
 	set :stage, :production
